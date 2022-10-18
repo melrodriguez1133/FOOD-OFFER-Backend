@@ -19,9 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/registrarEmpresas','App\Http\Controllers\registrarEmpresasController@index'); //para tener todos los registros y mostrarlos
-Route::post('/registrarEmpresas','App\Http\Controllers\registrarEmpresas@store'); //crear un registro
-Route::put('/registrarEmpresas/{id}','App\Http\Controllers\registrarEmpresas@update'); //actualizar un registro
-Route::delete('/registrarEmpresas','App\Http\Controllers\registrarEmpresas@destroy'); //borrar un registro
+Route::post('/registrarEmpresas','App\Http\Controllers\registrarEmpresasController@store'); //crear un registro
+Route::put('/registrarEmpresas/{id}','App\Http\Controllers\registrarEmpresasController@update'); //actualizar un registro
+Route::delete('/registrarEmpresas{id} ','App\Http\Controllers\registrarEmpresasController@destroy'); //borrar un registro
 
 Route::get('/tipoNegocio','App\Http\Controllers\tipoNegocioController@index'); //para tener todos los registros y mostrarlos
 Route::post('/tipoNegocio','App\Http\Controllers\tipoNegocioController@store'); //crear un registro
