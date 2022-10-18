@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\TipoNegocio;
+use App\Models\Dias;
 
-class tipoNegocioController extends Controller
+class DiasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class tipoNegocioController extends Controller
      */
     public function index()
     {
-        $tipoNegocio = TipoNegocio::all(); //trae todo los tipo de negocios
-        return $tipoNegocio;
+        $dia=Dias::all(); //trae todos los dias
+        return $dia;
     }
 
     /**
@@ -36,10 +36,10 @@ class tipoNegocioController extends Controller
      */
     public function store(Request $request)
     {
-        $tipoNegocio = new TipoNegocio();
-        $tipoNegocio->nombreValor = $request->nombreValor;
-
-        $tipoNegocio->save();
+        $dia=new Dias();
+        $dia->nombreValor = $request->nombreValor;
+      
+        $dia->save();
     }
 
     /**
@@ -73,10 +73,10 @@ class tipoNegocioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tipoNegocio = TipoNegocio::findOrFail($request->id);
-        $tipoNegocio->nombreValor = $request->nombreValor;
-        $tipoNegocio->save();
-        return $tipoNegocio;
+        $dia = dias::findOrFail($request->id);
+        $dia->nombreValor = $request->nombreValor;
+        $sia->save();
+        return $dia;
     }
 
     /**
@@ -87,7 +87,8 @@ class tipoNegocioController extends Controller
      */
     public function destroy($id)
     {
-        $tipoNegocio = TipoNegocio::destroy($request->id);
-        return $tipoNgocio;
+        $dia = Dias::destroy($request->id);
+
+        return $dia;
     }
 }
