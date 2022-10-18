@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('tipoNegocio');
             $table->string('Descripcion');
             $table->string('dias');
-            $table->integer('numerosContactos');
+            $table->integer('numeroCelular');
+            $table->integer('numeroTelefono')->nullable();
             $table->string('correoEmpresa');
-            $table->integer('numeroSucursales');
-            $table->string('direccionesSucursales');
+            $table->string('direccion');
             $table->timestamps();
         });
     }
