@@ -18,18 +18,11 @@ return new class extends Migration
             $table->string('nombreEmpresa');
             $table->string('tipoNegocioE');
             $table->string('descripcion');
-            $table->string('diasA');
-            $table->string('horaA');
-            $table->string('horaC');
-            $table->integer('numerosContactos');
+            $table->string('horariosAtencion');
+            $table->string('diasAtencion');
+            $table->integer('numeroCelular');
+            $table->integer('numeroTelefono');
             $table->string('correoEmpresa');
-            $table->string('direccionesSucursales');    
-            $table->integer('tipoNegocio_id')->unsigned();
-            $table->foreign('tipoNegocio_id')->references('id')->on('tipoNegocios');
-            //$table->foreignId('id_tipoNegocio')
-            //      ->nullable()
-            //      ->constrained('tipoNegocios')
-            //      ->nullOnDelete();
             $table->timestamps();
         });
     }

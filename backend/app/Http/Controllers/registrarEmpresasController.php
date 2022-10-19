@@ -40,12 +40,11 @@ class registrarEmpresasController extends Controller
         $registrarEmpresas->nombreEmpresa = $request->nombreEmpresa;
         $registrarEmpresas->tipoNegocioE = $request->tipoNegocioE;
         $registrarEmpresas->descripcion = $request->descripcion;
-        $registrarEmpresas->diasA = $request->diasA;
-        $registrarEmpresas->horaA = $request->horaA;
-        $registrarEmpresas->horaC = $request->horaC;
-        $registrarEmpresas->numerosContactos = $request->numerosContactos;
+        $registrarEmpresas->horariosAtencion = $request->horariosAtencion;
+        $registrarEmpresas->diasAtencion = $request->diasAtencion;
+        $registrarEmpresas->numeroCelular = $request->numeroCelular;
+        $registrarEmpresas->numeroTelefono = $request->numeroTelefono;
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
-        $registrarEmpresas->direccionesSucursales = $request->direccionesSucursales;
 
         $registrarEmpresas->save();
 
@@ -86,12 +85,11 @@ class registrarEmpresasController extends Controller
         $registrarEmpresas->nombreEmpresa = $request->nombreEmpresa;
         $registrarEmpresas->tipoNegocioE = $request->tipoNegocioE;
         $registrarEmpresas->descripcion = $request->descripcion;
-        $registrarEmpresas->diasA = $request->diasA;
-        $registrarEmpresas->horaA = $request->horaA;
-        $registrarEmpresas->horaC = $request->horaC;
-        $registrarEmpresas->numerosContactos = $request->numerosContactos;
+        $registrarEmpresas->horariosAtencion = $request->horariosAtencion;
+        $registrarEmpresas->diasAtencion = $request->diasAtencion;
+        $registrarEmpresas->numeroCelular = $request->numeroCelular;
+        $registrarEmpresas->numeroTelefono = $request->numeroTelefono;
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
-        $registrarEmpresas->direccionesSucursales = $request->direccionesSucursales;
 
         $registrarEmpresas->save();
 
