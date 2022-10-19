@@ -27,18 +27,3 @@ Route::get('/TipoNegocio','App\Http\Controllers\tipoNegocioController@index'); /
 Route::post('/TipoNegocio','App\Http\Controllers\tipoNegocioController@store'); //crear un registro
 Route::put('/TipoNegocio/{id}','App\Http\Controllers\tipoNegocioController@update'); //actualizar un registro
 Route::delete('/TipoNegocio/{id}','App\Http\Controllers\tipoNegocioController@destroy'); //borrar un registro
-
-Route::get('/horarioApertura','App\Http\Controllers\horarioAperturaController@index'); //para tener todos los horarios y mostrarlos
-Route::post('/horarioApertura','App\Http\Controllers\horarioAperturaController@store'); //crear un horario
-Route::put('/horarioApertura/{id}','App\Http\Controllers\horarioAperturaController@update'); //actualizar un horario
-Route::delete('/horarioApertura/{id}','App\Http\Controllers\horarioAperturaController@destroy'); //borrar un horario
-
-Route::get('/horarioCierre','App\Http\Controllers\horarioCierreController@index'); //para tener todos los horarios y mostrarlos
-Route::post('/horarioCierre','App\Http\Controllers\horarioCierreController@store'); //crear un horario
-Route::put('/horarioCierre/{id}','App\Http\Controllers\horarioCierreController@update'); //actualizar un horario
-Route::delete('/horarioCierro/{id}','App\Http\Controllers\horarioCierreController@destroy'); //borrar un horario
-
-Route::get('/Dias','App\Http\Controllers\DiasController@index'); //para tener todos los horarios y mostrarlos
-Route::post('/Dias','App\Http\Controllers\DiasController@store'); //crear un horario
-Route::put('/Dias/{id}','App\Http\Controllers\DiasController@update'); //actualizar un horario
-Route::delete('/Dias/{id}','App\Http\Controllers\DiasController@destroy'); //borrar un horario

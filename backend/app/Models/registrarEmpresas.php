@@ -9,5 +9,5 @@ class registrarEmpresas extends Model
 {
     use HasFactory;
     protected $fillable = ['nombreEmpresa','tipoNegocioE','descripcion','horariosAtencion', 'diasAtencion','numeroCelular', 
-                            'numeroTelefono', 'correoEmpresa'];
+                            'numeroTelefono', 'direccion', 'correoEmpresa'];
 }

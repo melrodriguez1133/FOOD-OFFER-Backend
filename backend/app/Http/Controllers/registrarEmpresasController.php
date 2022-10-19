@@ -44,6 +44,7 @@ class registrarEmpresasController extends Controller
         $registrarEmpresas->diasAtencion = $request->diasAtencion;
         $registrarEmpresas->numeroCelular = $request->numeroCelular;
         $registrarEmpresas->numeroTelefono = $request->numeroTelefono;
+        $registrarEmpresas->direccion = $request->direccion;
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
 
         $registrarEmpresas->save();
@@ -89,6 +90,7 @@ class registrarEmpresasController extends Controller
         $registrarEmpresas->diasAtencion = $request->diasAtencion;
         $registrarEmpresas->numeroCelular = $request->numeroCelular;
         $registrarEmpresas->numeroTelefono = $request->numeroTelefono;
+        $registrarEmpresas->direccion = $request->direccion;
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
 
         $registrarEmpresas->save();

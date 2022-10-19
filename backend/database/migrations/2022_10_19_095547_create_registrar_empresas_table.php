@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('diasAtencion');
             $table->integer('numeroCelular');
             $table->integer('numeroTelefono');
+            $table->string('direccion');
             $table->string('correoEmpresa');
             $table->timestamps();
         });
