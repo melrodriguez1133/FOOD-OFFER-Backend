@@ -24,6 +24,12 @@ return new class extends Migration
             $table->integer('numerosContactos');
             $table->string('correoEmpresa');
             $table->string('direccionesSucursales');    
+            $table->integer('tipoNegocio_id')->unsigned();
+            $table->foreign('tipoNegocio_id')->references('id')->on('tipoNegocios');
+            //$table->foreignId('id_tipoNegocio')
+            //      ->nullable()
+            //      ->constrained('tipoNegocios')
+            //      ->nullOnDelete();
             $table->timestamps();
         });
     }

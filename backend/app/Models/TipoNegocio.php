@@ -9,4 +9,7 @@ class TipoNegocio extends Model
 {
     use HasFactory;
     protected $fillable = ['nombreValor'];
+    public function registrarEmpresas(){
+        return $this->hasMany(registrarEmpresas::class, 'id');
+    }
 }
