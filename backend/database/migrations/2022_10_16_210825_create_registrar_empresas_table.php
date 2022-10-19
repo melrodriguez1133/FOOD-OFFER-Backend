@@ -16,13 +16,14 @@ return new class extends Migration
         Schema::create('registrar_empresas', function (Blueprint $table) {
             $table->id();
             $table->string('nombreEmpresa');
-            $table->string('tipoNegocio');
-            $table->string('Descripcion');
-            $table->string('dias');
-            $table->integer('numeroCelular');
-            $table->integer('numeroTelefono')->nullable();
+            $table->string('tipoNegocioE');
+            $table->string('descripcion');
+            $table->string('diasA');
+            $table->string('horaA');
+            $table->string('horaC');
+            $table->integer('numerosContactos');
             $table->string('correoEmpresa');
-            $table->string('direccion');
+            $table->string('direccionesSucursales');    
             $table->timestamps();
         });
     }

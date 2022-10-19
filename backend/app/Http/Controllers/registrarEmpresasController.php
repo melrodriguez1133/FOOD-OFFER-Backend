@@ -38,13 +38,14 @@ class registrarEmpresasController extends Controller
     {
         $registrarEmpresas=new registrarEmpresas();
         $registrarEmpresas->nombreEmpresa = $request->nombreEmpresa;
-        $registrarEmpresas->tipoNegocio = $request->tipoNegocio;
-        $registrarEmpresas->Descripcion = $request->Descripcion;
-        $registrarEmpresas->dias = $request->dias;
-        $registrarEmpresas->numeroCelular = $request->numeroCelular;
-        $registrarEmpresas->numeroTelefono = $request->numeroTelefono;
+        $registrarEmpresas->tipoNegocioE = $request->tipoNegocioE;
+        $registrarEmpresas->descripcion = $request->descripcion;
+        $registrarEmpresas->diasA = $request->diasA;
+        $registrarEmpresas->horaA = $request->horaA;
+        $registrarEmpresas->horaC = $request->horaC;
+        $registrarEmpresas->numerosContactos = $request->numerosContactos;
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
-        $registrarEmpresas->direccion = $request->direccion;
+        $registrarEmpresas->direccionesSucursales = $request->direccionesSucursales;
 
         $registrarEmpresas->save();
 
@@ -83,13 +84,14 @@ class registrarEmpresasController extends Controller
     {
         $registrarEmpresas = registrarEmpresas::findOrFail($request->id);
         $registrarEmpresas->nombreEmpresa = $request->nombreEmpresa;
-        $registrarEmpresas->tipoNegocio = $request->tipoNegocio;
-        $registrarEmpresas->Descripcion = $request->Descripcion;
-        $registrarEmpresas->dias = $request->dias;
-        $registrarEmpresas->numeroCelular = $request->numeroCelular;
-        $registrarEmpresas->numeroTelefono = $request->numeroTelefono;
+        $registrarEmpresas->tipoNegocioE = $request->tipoNegocioE;
+        $registrarEmpresas->descripcion = $request->descripcion;
+        $registrarEmpresas->diasA = $request->diasA;
+        $registrarEmpresas->horaA = $request->horaA;
+        $registrarEmpresas->horaC = $request->horaC;
+        $registrarEmpresas->numerosContactos = $request->numerosContactos;
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
-        $registrarEmpresas->direccion = $request->direccion;
+        $registrarEmpresas->direccionesSucursales = $request->direccionesSucursales;
 
         $registrarEmpresas->save();
 

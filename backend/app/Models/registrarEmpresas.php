@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class registrarEmpresas extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombreEmpresa','tipoNegocio','Descripcion','dias', 'numeroCelular', 'numeroTelefono',
-                            'correoEmpresa','direccion'];
+    protected $fillable = ['nombreEmpresa','tipoNegocioE','descripcion','diasA', 'horaA', 'horaC', 'numerosContactos', 
+                            'correoEmpresa', 'direccionesSucursales'];
 }
