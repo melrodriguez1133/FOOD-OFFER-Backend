@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('dias', function (Blueprint $table) {
             $table->id();
-            $table->string(nombreValor);
+            $table->string('nombreValor');
             $table->timestamps();
         });
     }
