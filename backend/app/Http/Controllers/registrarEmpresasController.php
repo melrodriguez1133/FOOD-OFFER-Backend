@@ -59,7 +59,8 @@ class registrarEmpresasController extends Controller
      */
     public function show($id)
     {
-        //
+        $registrarEmpresas=registrarEmpresas::find($id);
+        return $registrarEmpresas;
     }
 
     /**
@@ -68,10 +69,10 @@ class registrarEmpresasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    /*public function edit($id)
     {
         //
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.
@@ -107,7 +108,7 @@ class registrarEmpresasController extends Controller
      */
     public function destroy($id)
     {
-        $registrarEmpresas = registrarEmpresas::destroy($request->id);
+        $registrarEmpresas = registrarEmpresas::destroy($id);
 
         return $registrarEmpresas;
     }

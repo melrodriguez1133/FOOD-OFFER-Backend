@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+//use App\Http\Controllers\registrarEmpresasController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,8 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/registrarEmpresas','App\Http\Controllers\registrarEmpresasController@index'); //para tener todos los registros y mostrarlos
 Route::post('/registrarEmpresas','App\Http\Controllers\registrarEmpresasController@store'); //crear un registro
+Route::get('/registrarEmpresas/{id}','App\Http\Controllers\registrarEmpresasController@show'); //para mostrarlos los registros
 Route::put('/registrarEmpresas/{id}','App\Http\Controllers\registrarEmpresasController@update'); //actualizar un registro
-Route::delete('/registrarEmpresas{id} ','App\Http\Controllers\registrarEmpresasController@destroy'); //borrar un registro
+Route::delete('/registrarEmpresas/{id}','App\Http\Controllers\registrarEmpresasController@destroy'); //borrar un registro
 
 Route::get('/TipoNegocio','App\Http\Controllers\tipoNegocioController@index'); //para tener todos los registros y mostrarlos
 Route::post('/TipoNegocio','App\Http\Controllers\tipoNegocioController@store'); //crear un registro
