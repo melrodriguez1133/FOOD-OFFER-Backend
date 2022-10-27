@@ -26,10 +26,9 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignId('id_categoria')
-                  ->nullable()
                   ->constrained('categorias')
                   ->cascadeOnUpdate()
-                  ->nullOnDelete();
+                  ->cascadeOnDelete();
 
         });
     }
