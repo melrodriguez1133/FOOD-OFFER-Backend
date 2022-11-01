@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Categoria;
-use App\Models\Producto;
+use App\Models\horarioCierre;
 
-class ProductoController extends Controller
+class horarioCierreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $producto=Producto::all(); //trae todos los registros
-        return $producto;
+        $horarioCierre=horarioCierre::all(); //trae todos los horarios
+        return $horarioCierre;
     }
 
     /**
@@ -37,17 +36,10 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $producto=new Producto();
-        $producto->nombreProducto = $request->nombreProducto;
-        $producto->descripcion = $request->tipoNegocioE;
-        $producto->precio = $request->precio;
-        $producto->fechaElaboracion = $request->fechaElaboracion;
-        $producto->fechaVencimiento = $request->fechaVencimiento;
-        $producto->fechaOferta = $request->fechaOferta;
-        $producto->stock = $request->stock;
-        $producto->imagen = $request->imagen;
-
-        $producto->save();
+        $horarioCierre=new horarioCierre();
+        $horarioCierre->nombreValor = $request->nombreValor;
+      
+        $horarioCierre->save();
     }
 
     /**
@@ -58,8 +50,7 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        $producto=Producto::find($id);
-        return $producto;
+        //
     }
 
     /**
@@ -82,19 +73,10 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $producto = Producto::findOrFail($request->id);
-        $producto->nombreProducto = $request->nombreProducto;
-        $producto->descripcion = $request->tipoNegocioE;
-        $producto->precio = $request->precio;
-        $producto->fechaElaboracion = $request->fechaElaboracion;
-        $producto->fechaVencimiento = $request->fechaVencimiento;
-        $producto->fechaOferta = $request->fechaOferta;
-        $producto->stock = $request->stock;
-        $producto->imagen = $request->imagen;
-
-        $producto->save();
-
-        return $producto;
+        $horarioCierre = horarioCierre::findOrFail($request->id);
+        $horarioCierre->nombreValor = $request->nombreValor;
+        $horarioCierre->save();
+        return $horarioCierre;
     }
 
     /**
@@ -105,8 +87,8 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        $producto = Producto::destroy($id);
+        $horarioCierre = horarioCierre::destroy($request->id);
 
-        return $producto;
+        return $horarioCierre;
     }
 }
