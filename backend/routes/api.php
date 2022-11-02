@@ -27,3 +27,8 @@ Route::get('/TipoNegocio','App\Http\Controllers\tipoNegocioController@index'); /
 Route::post('/TipoNegocio','App\Http\Controllers\tipoNegocioController@store'); //crear un registro
 Route::put('/TipoNegocio/{id}','App\Http\Controllers\tipoNegocioController@update'); //actualizar un registro
 Route::delete('/TipoNegocio/{id}','App\Http\Controllers\tipoNegocioController@destroy'); //borrar un registro
+
+Route::get('/producto','App\Http\Controllers\ProductoController@index'); //para tener todos los registros y mostrarlos
+Route::post('/producto','App\Http\Controllers\ProductoController@store'); //crear un registro
+Route::put('/producto/{id}','App\Http\Controllers\ProductoController@update'); //actualizar un registro
+Route::delete('/producto/{id}','App\Http\Controllers\ProductoController@destroy'); //borrar un registro
