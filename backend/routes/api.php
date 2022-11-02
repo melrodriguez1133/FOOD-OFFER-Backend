@@ -29,11 +29,11 @@ Route::post('/TipoNegocio','App\Http\Controllers\tipoNegocioController@store'); 
 Route::put('/TipoNegocio/{id}','App\Http\Controllers\tipoNegocioController@update'); //actualizar un registro
 Route::delete('/TipoNegocio/{id}','App\Http\Controllers\tipoNegocioController@destroy'); //borrar un registro
 
-Route::get('/Producto','App\Http\Controllers\productoController@index'); //para tener todos los prodcutos y mostrarlos
-Route::post('/Producto','App\Http\Controllers\productoController@store'); //crear un registro
-Route::get('/Producto/{id}','App\Http\Controllers\prodcutoController@show'); //para mostrarlos los registros
-Route::put('/Producto/{id}','App\Http\Controllers\productoController@update'); //actualizar un registro
-Route::delete('/Producto/{id}','App\Http\Controllers\productoController@destroy'); //borrar un registro
+Route::get('/Producto','App\Http\Controllers\ProductoController@index'); //para tener todos los prodcutos y mostrarlos
+Route::post('/Producto','App\Http\Controllers\ProductoController@store'); //crear un registro
+Route::get('/Producto/{id}','App\Http\Controllers\ProdcutoController@show'); //para mostrarlos los registros
+Route::put('/Producto/{id}','App\Http\Controllers\ProductoController@update'); //actualizar un registro
+Route::delete('/Producto/{id}','App\Http\Controllers\ProductoController@destroy'); //borrar un registro
 
 Route::get('/Categoria','App\Http\Controllers\CategoriaController@index'); //para tener todas las categorias y mostrarlas
 Route::post('/Categoria','App\Http\Controllers\CategoriaController@store'); //crear un registro
