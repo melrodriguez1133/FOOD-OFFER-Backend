@@ -24,11 +24,6 @@ Route::get('/registrarEmpresas/{id}','App\Http\Controllers\registrarEmpresasCont
 Route::put('/registrarEmpresas/{id}','App\Http\Controllers\registrarEmpresasController@update'); //actualizar un registro
 Route::delete('/registrarEmpresas/{id}','App\Http\Controllers\registrarEmpresasController@destroy'); //borrar un registro
 
-Route::get('/TipoNegocio','App\Http\Controllers\tipoNegocioController@index'); //para tener todos los registros y mostrarlos
-Route::post('/TipoNegocio','App\Http\Controllers\tipoNegocioController@store'); //crear un registro
-Route::put('/TipoNegocio/{id}','App\Http\Controllers\tipoNegocioController@update'); //actualizar un registro
-Route::delete('/TipoNegocio/{id}','App\Http\Controllers\tipoNegocioController@destroy'); //borrar un registro
-
 Route::get('/Producto','App\Http\Controllers\ProductoController@index'); //para tener todos los prodcutos y mostrarlos
 Route::post('/Producto','App\Http\Controllers\ProductoController@store'); //crear un registro
 Route::get('/Producto/{id}','App\Http\Controllers\ProductoController@show'); //para mostrarlos los registros

@@ -39,13 +39,14 @@ class ProductoController extends Controller
     {
         $producto=new Producto();
         $producto->nombreProducto = $request->nombreProducto;
-        $producto->descripcion = $request->tipoNegocioE;
+        $producto->descripcion = $request->descripcion;
         $producto->precio = $request->precio;
         $producto->fechaElaboracion = $request->fechaElaboracion;
         $producto->fechaVencimiento = $request->fechaVencimiento;
         $producto->fechaOferta = $request->fechaOferta;
         $producto->stock = $request->stock;
         $producto->imagen = $request->imagen;
+        $producto->id_categoria = $request->id_categoria;
 
         $producto->save();
     }
@@ -84,13 +85,14 @@ class ProductoController extends Controller
     {
         $producto = Producto::findOrFail($request->id);
         $producto->nombreProducto = $request->nombreProducto;
-        $producto->descripcion = $request->tipoNegocioE;
+        $producto->descripcion = $request->descripcion;
         $producto->precio = $request->precio;
         $producto->fechaElaboracion = $request->fechaElaboracion;
         $producto->fechaVencimiento = $request->fechaVencimiento;
         $producto->fechaOferta = $request->fechaOferta;
         $producto->stock = $request->stock;
         $producto->imagen = $request->imagen;
+        $producto->id_categoria = $request->id_categoria;
 
         $producto->save();
 

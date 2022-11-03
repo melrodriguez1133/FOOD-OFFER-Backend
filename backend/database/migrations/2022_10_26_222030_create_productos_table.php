@@ -23,12 +23,13 @@ return new class extends Migration
             $table->date('fechaOferta');
             $table->integer('stock');
             $table->string('imagen');
-            $table->timestamps();
 
             $table->foreignId('id_categoria')
                   ->constrained('categorias')
                   ->cascadeOnUpdate()
                   ->cascadeOnDelete();
+            
+            $table->timestamps();
 
         });
     }
