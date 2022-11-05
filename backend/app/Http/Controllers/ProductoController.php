@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Producto;
+use App\Models\File;
+use Illuminate\Support\Facades\Validator;
 
 class ProductoController extends Controller
 {
@@ -37,7 +39,9 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $product = json_decode($request->product, true);
+        
+        $conditions=[
             'nombreProducto' => 'required | min:4 | max: 20',
             'descripcion' => 'required | min:25 | max: 250',
             'precio' => 'required',
@@ -45,22 +49,33 @@ class ProductoController extends Controller
             'fechaVencimiento' => 'required',
             'fechaOferta' => 'required',
             'stock' => 'required | min_digits:1 | max_digits:3',
-            'imagen' => 'required',
+            'imagen' => 'required | image | max:2048',
             'id_categoria' => 'required',
-        ]);
+        ];
 
-        $producto=new Producto();
-        $producto->nombreProducto = $request->nombreProducto;
-        $producto->descripcion = $request->descripcion;
-        $producto->precio = $request->precio;
-        $producto->fechaElaboracion = $request->fechaElaboracion;
-        $producto->fechaVencimiento = $request->fechaVencimiento;
-        $producto->fechaOferta = $request->fechaOferta;
-        $producto->stock = $request->stock;
-        $producto->imagen = $request->imagen;
-        $producto->id_categoria = $request->id_categoria;
+        $validator = Validator::make($product, $conditions);
 
-        $producto->save();
+        if($validator->passes()){
+            $producto = new Producto();
+
+            $uploadFile = new File();
+
+            $producto->nombreProducto = $product['nombreProducto'];
+            $producto->descripcion = $product['descripcion'];
+            $producto->precio = $product['precio'];
+            $producto->fechaElaboracion = $product['fechaElaboracion'];
+            $producto->fechaVencimiento = $product['fechaVencimiento'];
+            $producto->fechaOferta = $product['fechaOferta'];
+            $producto->stock = $product['stock'];
+            $producto->imagen = $uploadFile->upload($request, 'products');
+            $producto->id_categoria = $product['id_categoria'];
+
+            $producto->save();
+
+            return $product;
+        }else{
+            return [$validator->errors()];
+        }
     }
 
     /**
