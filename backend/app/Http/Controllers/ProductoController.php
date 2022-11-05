@@ -37,6 +37,18 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombreProducto' => 'required | min:4 | max: 20',
+            'descripcion' => 'required | min:25 | max: 250',
+            'precio' => 'required',
+            'fechaElaboracion' => 'required',
+            'fechaVencimiento' => 'required',
+            'fechaOferta' => 'required',
+            'stock' => 'required | min_digits:1 | max_digits:3',
+            'imagen' => 'required',
+            'id_categoria' => 'required',
+        ]);
+
         $producto=new Producto();
         $producto->nombreProducto = $request->nombreProducto;
         $producto->descripcion = $request->descripcion;

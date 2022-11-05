@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('nombreProducto');
             $table->string('descripcion');
             $table->integer('precio');
-            $table->date('fechaElaboracion');
-            $table->date('fechaVencimiento');
-            $table->date('fechaOferta');
+            $table->string('fechaElaboracion');
+            $table->string('fechaVencimiento');
+            $table->string('fechaOferta');
             $table->integer('stock');
             $table->string('imagen');
 
