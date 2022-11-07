@@ -20,18 +20,19 @@ class ProductoController extends Controller
     {
         $dir = storage_path("app/products/$img");
         $tipo = Files::mimeType($dir);
-        /*//var_dump ($dir);
-        $imagen = Storage::get($img);
-        //$response = Response($imagen, 200)->header("Content-Type", $tipo);
-        //$response->header("Content-Type", $tipo);
-        var_dump ($tipo);*/
+      
         return response()->File($dir, ["content-Type"=> $tipo]);
     }
 
     public function index()
     {
         $producto=Producto::all(); //trae todos los registros
-        return $producto;
+        $productoNuevo=[];
+        foreach($producto as $item){
+            $item->imagen="http://127.0.0.1:8000/api/Producto/imagen/$item->imagen";
+            array_push($productoNuevo,$item);
+        }
+        return $productoNuevo;
     }
 
     /**
