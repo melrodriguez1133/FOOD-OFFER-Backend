@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File as Files;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Producto;
@@ -15,6 +16,18 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getimages($img)
+    {
+        $dir = storage_path("app/products/$img");
+        $tipo = Files::mimeType($dir);
+        /*//var_dump ($dir);
+        $imagen = Storage::get($img);
+        //$response = Response($imagen, 200)->header("Content-Type", $tipo);
+        //$response->header("Content-Type", $tipo);
+        var_dump ($tipo);*/
+        return response()->File($dir, ["content-Type"=> $tipo]);
+    }
+
     public function index()
     {
         $producto=Producto::all(); //trae todos los registros
@@ -49,7 +62,7 @@ class ProductoController extends Controller
             'fechaVencimiento' => 'required',
             'fechaOferta' => 'required',
             'stock' => 'required | min_digits:1 | max_digits:3',
-            'imagen' => 'required | image | max:2048',
+            //'imagen' => 'required | image | max:2048',
             'id_categoria' => 'required',
         ];
 
@@ -87,6 +100,9 @@ class ProductoController extends Controller
     public function show($id)
     {
         $producto=Producto::find($id);
+        $categoria=Categoria::find($producto->id_categoria);
+        $producto->id_categoria = $categoria->descripcion;
+        $producto->imagen="http://127.0.0.1:8000/api/Producto/imagen/$producto->imagen";
         return $producto;
     }
 

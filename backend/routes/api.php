@@ -35,3 +35,5 @@ Route::post('/Categoria','App\Http\Controllers\CategoriaController@store'); //cr
 Route::get('/Categoria/{id}','App\Http\Controllers\CategoriaController@show'); //para mostrar todas las categorias
 Route::put('/Categoria/{id}','App\Http\Controllers\CategoriaController@update'); //actualizar un registro
 Route::delete('/Categoria/{id}','App\Http\Controllers\CategoriaController@destroy'); //borrar un registro
+
+Route::get('/Producto/imagen/products/{img}','App\Http\Controllers\ProductoController@getimages');
