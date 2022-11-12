@@ -48,7 +48,7 @@ class registrarEmpresasController extends Controller
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
 
         $registrarEmpresas->save();
-
+return[];
     }
 
     /**
