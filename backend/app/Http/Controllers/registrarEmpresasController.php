@@ -36,6 +36,18 @@ class registrarEmpresasController extends Controller
      */
     public function store(Request $request)
     {
+        $validation= $request->validate([
+            'nombreEmpresa' => 'required | alpha | min:4 | max: 20',
+            'tipoNegocioE' => 'required | alpha | min:7 | max: 20',
+            'descripcion' => ["required", "regex:/^[a-zA-ZÀ-ÿ0-9.,\s]+$/", "min:25", "max: 250"],
+            'horariosAtencion' => 'required | regex:/^([0-2][0-9]:[0-5][0-9])(-)([0-2][0-9]:[0-5][0-9])+$/',
+            'diasAtencion' => 'required | regex:/^[a-zA-Z\s-]+$/ | min:5 | max:50',
+            'numeroCelular' => 'required | regex:/^[6-7][0-9]+$/ | digits:8',
+            'numeroTelefono' => 'required | digits:7 | regex:/^4[0-9]+$/',
+            'direccion' => 'required |regex:/^[a-zA-Z0-9\s#.,]+$/ | min:25 | max: 100',
+            'correoEmpresa' => 'required | regex:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/',
+        ]);
+
         $registrarEmpresas=new registrarEmpresas();
         $registrarEmpresas->nombreEmpresa = $request->nombreEmpresa;
         $registrarEmpresas->tipoNegocioE = $request->tipoNegocioE;
@@ -48,7 +60,7 @@ class registrarEmpresasController extends Controller
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
 
         $registrarEmpresas->save();
-return[];
+        return[];
     }
 
     /**
