@@ -34,7 +34,34 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation= $request->validate([
+            'nombre' => 'required ',
+            'apellido' => 'required',
+            'direccion' => 'required',
+            'celular' => 'required',
+            'genero' => 'required',
+            'ci' => 'required',
+            'expedio' => 'required',
+            'email' => 'required',
+            'contraseña' => 'required',
+            'verificar_Contraseña' => 'required',
+            'rol' => 'required',
+        ]);
+
+        $usuarios=new Usuarios();
+        $usuarios->nombre = $request->nombre;
+        $usuarios->apellido = $request->apellido;
+        $usuarios->direccion = $request->direccion;
+        $usuarios->celular = $request->celular;
+        $usuarios->genero = $request->genero;
+        $usuarios->ci = $request->ci;
+        $usuarios->expedio = $request->expedio;
+        $usuarios->email = $request->email;
+        $usuarios->contraseña = $request->contraseña;
+        $usuarios->verificar_Contraseña = $request->verificar_Contraseña;
+        $usuarios->rol = $request->rol;
+        $usuarios->save();
+        return[];
     }
 
     /**
