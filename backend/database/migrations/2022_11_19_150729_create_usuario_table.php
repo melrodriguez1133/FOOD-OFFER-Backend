@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('genero');
             $table->integer('ci');
             $table->string('expedido');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('contraseña');
             $table->string('verificar_Contraseña');
             $table->string('rol');
