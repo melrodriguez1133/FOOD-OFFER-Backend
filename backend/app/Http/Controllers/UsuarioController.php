@@ -50,10 +50,10 @@ class UsuarioController extends Controller
             'password' => 'required |min:6|max:15' ,
         ]);
 
-        $usuarios=new Usuarios();
+        $usuarios=new Usuario();
         $usuarios->nombre = $request->nombre;
-        $usuarios->edad = $request->edad;
         $usuarios->apellido = $request->apellido;
+        $usuarios->edad = $request->edad;
         $usuarios->direccion = $request->direccion;
         $usuarios->celular = $request->celular;
         $usuarios->genero = $request->genero;
