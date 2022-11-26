@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('numeroTelefono');
             $table->string('direccion');
             $table->string('correoEmpresa');
+            $table->string('password');
             $table->timestamps();
         });
     }

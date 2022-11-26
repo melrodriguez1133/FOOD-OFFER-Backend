@@ -39,7 +39,7 @@ class UsuarioController extends Controller
     {
         $validation= $request->validate([
             'nombre' => 'required |min: 3 |max: 30 ',
-            'edad' => 'required | numeric | digits_between:1,2',
+            'edad' => 'required | numeric | digits:2',
             'apellido' => 'required |min: 3 | max: 40',
             'direccion' => 'required |min: 15 |max: 50',
             'celular' => 'required |numeric| digits:8',

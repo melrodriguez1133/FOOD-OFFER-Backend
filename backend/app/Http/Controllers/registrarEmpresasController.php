@@ -46,6 +46,9 @@ class registrarEmpresasController extends Controller
             'numeroTelefono' => 'required | digits:7 ',
             'direccion' => 'required | min:12 | max: 100',
             'correoEmpresa' => 'required',
+            'password' => 'required |min :6| max:15' 
+
+
         ]);
 
         $registrarEmpresas=new registrarEmpresas();
@@ -58,6 +61,8 @@ class registrarEmpresasController extends Controller
         $registrarEmpresas->numeroTelefono = $request->numeroTelefono;
         $registrarEmpresas->direccion = $request->direccion;
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
+        $registrarEmpresas->password = $request->password;
+
 
         $registrarEmpresas->save();
         return[];
@@ -105,6 +110,8 @@ class registrarEmpresasController extends Controller
         $registrarEmpresas->numeroTelefono = $request->numeroTelefono;
         $registrarEmpresas->direccion = $request->direccion;
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
+        $registrarEmpresas->password = $request->password;
+
 
         $registrarEmpresas->save();
 
