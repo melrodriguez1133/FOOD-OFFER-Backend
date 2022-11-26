@@ -39,5 +39,4 @@ Route::delete('/Categoria/{id}','App\Http\Controllers\CategoriaController@destro
 Route::get('/Producto/imagen/products/{img}','App\Http\Controllers\ProductoController@getimages');
 
 Route::put('/Usuario/{id}','App\Http\Controllers\UsuarioController@update'); //actualizar un registro
-Route::delete('/Usuario/{id}','App\Http\Controllers\UsuarioController@destroy'); 
-
+Route::delete('/Usuario/{id}','App\Http\Controllers\UsuarioController@destroy'); //borrar un registro
