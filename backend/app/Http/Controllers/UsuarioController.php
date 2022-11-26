@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Usuario;
+
 
 class UsuarioController extends Controller
 {
@@ -13,7 +15,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        $usuarios=Usuario::all(); //trae todos los registros
+        return $usuarios;
     }
 
     /**
@@ -35,31 +38,29 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $validation= $request->validate([
-            'nombre' => 'required ',
-            'apellido' => 'required',
-            'direccion' => 'required',
-            'celular' => 'required',
+            'nombre' => 'required |min: 3 |max: 30 ',
+            'edad' => 'required | numeric | digits_between:1,2',
+            'apellido' => 'required |min: 3 | max: 40',
+            'direccion' => 'required |min: 15 |max: 50',
+            'celular' => 'required |numeric| digits:8',
             'genero' => 'required',
-            'ci' => 'required',
-            'expedio' => 'required',
+            'ci' => 'required |numeric| digits_between:6,10 ',
+            'expedido' => 'required |alpha| min:2 | max:4'  ,
             'email' => 'required',
-            'contraseña' => 'required',
-            'verificar_Contraseña' => 'required',
-            'rol' => 'required',
+            'password' => 'required |min:6|max:15' ,
         ]);
 
         $usuarios=new Usuarios();
         $usuarios->nombre = $request->nombre;
+        $usuarios->edad = $request->edad;
         $usuarios->apellido = $request->apellido;
         $usuarios->direccion = $request->direccion;
         $usuarios->celular = $request->celular;
         $usuarios->genero = $request->genero;
         $usuarios->ci = $request->ci;
-        $usuarios->expedio = $request->expedio;
+        $usuarios->expedido = $request->expedido;
         $usuarios->email = $request->email;
-        $usuarios->contraseña = $request->contraseña;
-        $usuarios->verificar_Contraseña = $request->verificar_Contraseña;
-        $usuarios->rol = $request->rol;
+        $usuarios->password = $request->password;
         $usuarios->save();
         return[];
     }
@@ -97,6 +98,7 @@ class UsuarioController extends Controller
     {
         $usuarios = Usuario::findOrFail($request->id);
         $usuarios->nombre = $request->nombre;
+        $usuarios->edad = $request->edad;
         $usuarios->apellido = $request->apellido;
         $usuarios->direccion = $request->direccion;
         $usuarios->celular = $request->celular;
@@ -104,9 +106,7 @@ class UsuarioController extends Controller
         $usuarios->ci = $request->ci;
         $usuarios->expedido = $request->expedido;
         $usuarios->email = $request->email;
-        $usuarios->contraseña = $request->contraseña;
-        $usuarios->verificar_Contraseña = $request->verificar_Contraseña;
-        $usuarios->rol = $request->rol;
+        $usuarios->password = $request->password;
 
         $usuarios->save();
 

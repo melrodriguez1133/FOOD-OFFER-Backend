@@ -40,3 +40,6 @@ Route::get('/Producto/imagen/products/{img}','App\Http\Controllers\ProductoContr
 
 Route::put('/Usuario/{id}','App\Http\Controllers\UsuarioController@update'); //actualizar un registro
 Route::delete('/Usuario/{id}','App\Http\Controllers\UsuarioController@destroy'); //borrar un registro
+Route::get('/Usuario','App\Http\Controllers\UsuarioController@index'); //para tener todas las categorias y mostrarlas
+Route::post('/Usuario','App\Http\Controllers\UsuarioController@store'); //crear un registro
+Route::get('/Usuario/{id}','App\Http\Controllers\UsuarioController@show'); //para mostrar todas las categorias
