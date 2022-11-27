@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Middleware\Authenticate;
+use Illuminate\Support\Facades\Cookie;
 
 
 class UsuarioController extends Controller
@@ -46,8 +51,8 @@ class UsuarioController extends Controller
             'genero' => 'required',
             'ci' => 'required |numeric| digits_between:6,10 ',
             'expedido' => 'required |alpha| min:2 | max:4'  ,
-            'email' => 'required',
-            'password' => 'required |min:6|max:15' ,
+            'email' => 'required|email| unique:usuarios',
+            'password' => 'required|min:6|max:15' ,
         ]);
 
         $usuarios=new Usuario();
@@ -60,7 +65,7 @@ class UsuarioController extends Controller
         $usuarios->ci = $request->ci;
         $usuarios->expedido = $request->expedido;
         $usuarios->email = $request->email;
-        $usuarios->password = $request->password;
+        $usuarios->password = Hash::make($request->password);
         $usuarios->save();
         return[];
     }
@@ -124,5 +129,37 @@ class UsuarioController extends Controller
         $usuarios = Usuario::destroy($id);
 
         return $usuarios;
+    }
+
+    public function login(Request $request){
+        $credentials = $request->validate([
+            'email'=>['required','email'],
+            'password' => ['required'],
+        ]);
+        if (Auth::attempt($credentials)){
+            $usuarios = Auth::user();
+            $token = $usuarios->createToken('token')->plainTextToken;
+            $cookie = cookie('cookie_token', $token, 60 * 24);
+            return response(["token"=>$token], Response::HTTP_OK)->withoutCookie($cookie);
+        }else {
+            return response(["message"=>"credenciales invalidas"],Response::HTTP_UNAUTHORIZED);
+        }
+
+    }
+    public function userProfile(Request $request){
+        return response()->json([
+            "message"=> "user ok",
+            "userData"=> auth::user()
+        ], Response::HTTP_OK);
+    }
+    public function logout(){
+        $cookie = Cookie::forget('cookie_token');
+        return response(["message"=>"Cierre de sesion OK"], Response::HTTP_OK)->withoutCookie($cookie);
+    }
+    public function allUsers(Request $request){
+        $users = Usuario::all();
+        return response()->json([
+            "users"=> $users
+        ]);
     }
 }
