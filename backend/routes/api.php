@@ -14,7 +14,7 @@ use App\Http\Controllers\UsuarioController;
 |
 */
 
-Route::post('/Usuario','App\Http\Controllers\UsuarioController@store'); //crear un registro
+/*Route::post('/Usuario','App\Http\Controllers\UsuarioController@store'); //crear un registro
 Route::post('login', [UsuarioController::class, 'login']);
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
@@ -22,7 +22,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('logout', [UsuarioController::class, 'logout']);
 });
 
-Route::get('allUsers', [UsuarioController::class, 'allUsers']);
+Route::get('allUsers', [UsuarioController::class, 'allUsers'])*/
 
 Route::get('/registrarEmpresas','App\Http\Controllers\registrarEmpresasController@index'); //para tener todos los registros y mostrarlos
 Route::post('/registrarEmpresas','App\Http\Controllers\registrarEmpresasController@store'); //crear un registro
@@ -46,6 +46,6 @@ Route::get('/Producto/imagen/products/{img}','App\Http\Controllers\ProductoContr
 
 Route::put('/Usuario/{id}','App\Http\Controllers\UsuarioController@update'); //actualizar un registro
 Route::delete('/Usuario/{id}','App\Http\Controllers\UsuarioController@destroy'); //borrar un registro
-//Route::get('/Usuario','App\Http\Controllers\UsuarioController@index'); //para tener todas las categorias y mostrarlas
-//Route::post('/Usuario','App\Http\Controllers\UsuarioController@store'); //crear un registro
-//Route::get('/Usuario/{id}','App\Http\Controllers\UsuarioController@show'); //para mostrar todas las categorias
+Route::get('/Usuario','App\Http\Controllers\UsuarioController@index'); //para tener todas las categorias y mostrarlas
+Route::post('/Usuario','App\Http\Controllers\UsuarioController@store'); //crear un registro
+Route::get('/Usuario/{id}','App\Http\Controllers\UsuarioController@show'); //para mostrar todas las categorias
