@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\registrarEmpresas;
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Middleware\Authenticate;
+use Illuminate\Support\Facades\Cookie;
 
 class registrarEmpresasController extends Controller
 {
@@ -46,7 +51,7 @@ class registrarEmpresasController extends Controller
             'numeroTelefono' => 'required | digits:7 ',
             'direccion' => 'required | min:12 | max: 100',
             'correoEmpresa' => 'required',
-            'password' => 'required |min :6| max:15' 
+            'password' => 'required |min:4| max:12' 
 
 
         ]);
@@ -61,7 +66,7 @@ class registrarEmpresasController extends Controller
         $registrarEmpresas->numeroTelefono = $request->numeroTelefono;
         $registrarEmpresas->direccion = $request->direccion;
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
-        $registrarEmpresas->password = $request->password;
+        $registrarEmpresas->password = Hash::make($request->password);
 
 
         $registrarEmpresas->save();
