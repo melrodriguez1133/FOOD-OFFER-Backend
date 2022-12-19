@@ -66,7 +66,7 @@ class registrarEmpresasController extends Controller
         $registrarEmpresas->numeroTelefono = $request->numeroTelefono;
         $registrarEmpresas->direccion = $request->direccion;
         $registrarEmpresas->correoEmpresa = $request->correoEmpresa;
-        $registrarEmpresas->password = Hash::make($request->password);
+        $registrarEmpresas->password =$request->password;
 
 
         $registrarEmpresas->save();

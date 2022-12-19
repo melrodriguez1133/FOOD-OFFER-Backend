@@ -14,5 +14,5 @@ class registrarEmpresas extends Authenticatable
     
     protected $fillable = ['nombreEmpresa','tipoNegocioE','descripcion','horariosAtencion', 'diasAtencion','numeroCelular', 
                             'numeroTelefono', 'direccion', 'correoEmpresa', 'password'];
-    protected $hidden = ['password', 'remember_token',];
+   // protected $hidden = ['password', 'remember_token',];
 }

@@ -51,7 +51,7 @@ class UsuarioController extends Controller
             'genero' => 'required',
             'ci' => 'required |numeric| digits_between:6,10 ',
             'expedido' => 'required |alpha| min:2 | max:4'  ,
-            'email' => 'required|email| unique:usuarios',
+            'email' => 'required|email',
             'password' => 'required|min:6|max:15' ,
         ]);
 
@@ -65,7 +65,7 @@ class UsuarioController extends Controller
         $usuarios->ci = $request->ci;
         $usuarios->expedido = $request->expedido;
         $usuarios->email = $request->email;
-        $usuarios->password = Hash::make($request->password);
+        $usuarios->password = $request->password;
         $usuarios->save();
         return[];
     }
